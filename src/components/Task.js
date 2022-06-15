@@ -1,24 +1,18 @@
-import { useState } from 'react';
-
-function Task(props) {
-  const [taskCompleted, setTaskCompleted] = useState(false);
-
-  const toggleTask = () => setTaskCompleted(!taskCompleted);
-
+function Task({ task, setter }) {
   return (
     <div className="task-card">
       <div className="task-card-half">
-        <h1>{props.task.name}</h1>
-        {taskCompleted
+        <h1>{task.name}</h1>
+        {task.isCompleted
           ? <span>DONE ✅</span>
           : <span>PENDING ⌛</span>
         }
 
         <h2> Task Description </h2>
-        <p>{props.task.description}</p>
+        <p>{task.description}</p>
 
-        <button className="add" onClick={toggleTask}>
-          {taskCompleted
+        <button className="add" onClick={() => setter(task._id)}>
+          {task.isCompleted
             ? <span>UNDO ❌</span>
             : <span>✔️</span>
           }

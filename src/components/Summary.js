@@ -1,10 +1,10 @@
 import React from "react";
 
-function Summary(props) {
+function Summary({ completedTasks }) {
   return (
     <div>
       <h1>TASKS COMPLETED:</h1>
-      <p className="tasks-completed">0</p>
+      <p className="tasks-completed">{completedTasks}</p>
     </div>
   );
 }
